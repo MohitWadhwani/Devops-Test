@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example.springweb</groupId>
-	<artifactId>devopstest</artifactId>
+	<artifactId>DevopsTest</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Producttestapi-4</name>
+	<name>DevopsTest-4</name>
 	<description>Exploring Restful Web Api</description>
  <dependencies>
 	 <dependency>
