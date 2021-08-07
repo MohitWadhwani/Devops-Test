@@ -1,5 +1,7 @@
 pipeline {
     agent any
+	def mavenHome = tool name:'M2',type:'maven'
+    def mavencmd= "${mavenHome}/bin/mvn"
     stages {
         stage("Git code") {
             steps {
@@ -9,7 +11,7 @@ pipeline {
 
         stage("Build Spring Boot Application") {
             steps {
-                sh "mvn package spring-boot:repackage"
+                sh "$mavencmd package spring-boot:repackage"
             }
 		}
         stage("build docker image"){
