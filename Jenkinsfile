@@ -18,7 +18,7 @@ pipeline {
 		}
         stage("build docker image"){
 		    steps {
-                sh "docker build -t 8458882343/Devops-springboot:latest ."
+                sh "docker build -t 8458882343/devops-springboot:latest ."
 		    }
 		}
 	}
