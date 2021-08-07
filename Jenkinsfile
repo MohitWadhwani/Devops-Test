@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage("Git Checkout") {
             steps {
-                git clone "https://github.com/MohitWadhwani/Devops-Test.git"
+                git 'https://github.com/MohitWadhwani/Devops-Test.git'
             }
         }
 
