@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage("Git Checkout") {
             steps {
-                git 'https://github.com/MohitWadhwani/Devops-bootcamp-SpringBoot-Application.git
+                git 'https://github.com/MohitWadhwani/Devops-bootcamp-SpringBoot-Application.git'
             }
         }
 
