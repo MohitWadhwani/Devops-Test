@@ -1,7 +1,7 @@
 #!/usr/bin/env groovy
 pipeline {
     agent any
-	
+
     stages {
         stage("Git Checkout") {
             steps {
@@ -13,10 +13,10 @@ pipeline {
             steps {
                 sh "mvn package spring-boot:repackage"
             }
+		}
 		stage("build docker image"){
 			sh "docker build -t 8458882343/Devops-springboot:latest ."
-    }
-        }
+		}
 	}
 	post { 
         always { 
