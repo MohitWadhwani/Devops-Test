@@ -1,10 +1,8 @@
 pipeline {
     agent any
     stages {
-        stage("Git Checkout") {
+        stage("Git code") {
             steps {
-			git branch: 'main',
-                url: 'git https://github.com/MohitWadhwani/Devops-Test.git'
             sh "ls -lat"
             }
         }
