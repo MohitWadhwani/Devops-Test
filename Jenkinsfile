@@ -1,7 +1,4 @@
-#!/usr/bin/env groovy
-pipeline {
-    agent any
-
+node {
     stages {
         stage("Git Checkout") {
             steps {
@@ -14,8 +11,8 @@ pipeline {
                 sh "mvn package spring-boot:repackage"
             }
 		}
-		stage("build docker image"){
-			sh "docker build -t 8458882343/Devops-springboot:latest ."
+        stage("build docker image"){
+          sh "docker build -t 8458882343/Devops-springboot:latest ."
 		}
 	}
 	post { 
