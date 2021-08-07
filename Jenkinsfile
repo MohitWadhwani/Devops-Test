@@ -3,7 +3,9 @@ pipeline {
     stages {
         stage("Git Checkout") {
             steps {
-                sh 'git checkout https://github.com/MohitWadhwani/Devops-Test.git'
+			git branch: 'main',
+                url: 'git https://github.com/MohitWadhwani/Devops-Test.git'
+            sh "ls -lat"
             }
         }
 
