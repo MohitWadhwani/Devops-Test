@@ -24,7 +24,7 @@ pipeline {
 	}
 	post { 
         always { 
-            jar '**/*.jar'
+            copyArtifacts '**/*.jar'
         }
     }
 }
