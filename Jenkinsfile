@@ -1,8 +1,9 @@
-node {
+pipeline {
+    agent any
     stages {
         stage("Git Checkout") {
             steps {
-                git 'https://github.com/MohitWadhwani/Devops-bootcamp-SpringBoot-Application.git'
+                git clone "https://github.com/MohitWadhwani/Devops-bootcamp-SpringBoot-Application.git"
             }
         }
 
@@ -12,7 +13,9 @@ node {
             }
 		}
         stage("build docker image"){
-          sh "docker build -t 8458882343/Devops-springboot:latest ."
+		    steps {
+                sh "docker build -t 8458882343/Devops-springboot:latest ."
+		    }
 		}
 	}
 	post { 
