@@ -1,7 +1,8 @@
+def mavenHome = tool name:'M2',type:'maven'
+def mavencmd= "${mavenHome}/bin/mvn"
+
 pipeline {
     agent any
-	def mavenHome = tool name:'M2',type:'maven'
-    def mavencmd= "${mavenHome}/bin/mvn"
     stages {
         stage("Git code") {
             steps {
