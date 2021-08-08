@@ -23,8 +23,8 @@ pipeline {
 		}
         stage("Push docker image"){
 		    steps {
-               withCredentials([usernamePassword(credentialsId: 'dockerlogin', passwordVariable: 'login', usernameVariable: 'dokcerlogin')]) {
-                    sh "docker login -u $dockerlogin -p $login"
+               withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', passwordVariable: 'LOGIN', usernameVariable: 'USER')]) {
+                    sh "docker login -u $USER -p $LOGIN"
                     sh "docker push 8458882343/devops-springboot:latest"
                 }
 		    }
