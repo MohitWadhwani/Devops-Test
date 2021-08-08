@@ -19,3 +19,6 @@
 
   - name: Run docker image
     command: docker run -d --name devops-springboot -p 8090:8080 8458882343/devops-springboot:latest
+  
+  - name: Remove dangling images pointing into none
+    command: docker rmi $(docker images -f "dangling=true" -q)
