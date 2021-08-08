@@ -31,7 +31,7 @@ pipeline {
 		}
         stage("Run docker using Ansible"){
 		    steps {
-                sh "ansible-playbook deployment.yaml"
+                sh "ansible-playbook deployment.yaml -i /opt/docker/host.txt"
 		    }
 		}
 	}
