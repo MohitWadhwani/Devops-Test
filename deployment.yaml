@@ -1,0 +1,21 @@
+---
+- hosts: all
+  become: true
+  tasks:
+  - name: stop if we have old docker container
+    command: docker container stop devops-springboot
+    ignore_errors: yes
+
+  - name: remove stopped docker container
+    command: docker container rm devops-springboot
+    ignore_errors: yes
+
+  - name: remove current docker image
+    command: docker rmi 8458882343/devops-springboot:latest
+    ignore_errors: yes
+
+  - name: pull docker image
+    command: docker pull 8458882343/devops-springboot:latest
+
+  - name: Run docker image
+    command: docker run -d --name devops-springboot -p 8090:8080 8458882343/devops-springboot:latest

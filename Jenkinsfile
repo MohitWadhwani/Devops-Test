@@ -29,6 +29,11 @@ pipeline {
                 }
 		    }
 		}
+        stage("Run docker using Ansible"){
+		    steps {
+                sh "ansible-playbook deployment.yaml"
+		    }
+		}
 	}
 	post { 
         always { 
