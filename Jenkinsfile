@@ -40,7 +40,7 @@ pipeline {
 		        script {
                         bat "helm template ./devops-test/  --set image.tag=${env.BUILD_NUMBER}"
                         
-                        bat "helm upgrade --install --name test ./devops-test/ --set image.tag=${env.BUILD_NUMBER}"
+                        bat "helm upgrade --install test ./devops-test/ --set image.tag=${env.BUILD_NUMBER}"
 		        }
 
 		    }
