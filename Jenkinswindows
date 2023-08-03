@@ -18,17 +18,20 @@ pipeline {
 		}
         stage("build docker image"){
 		    steps {
-                bat label: '', script: "docker build -t 8458882343/devops-springboot:latest ."
+                bat label: '', script: "docker build -t 8458882343/devops-springboot:${env.BUILD_NUMBER} ."
 		    }
 		}
-        // stage("Push docker image"){
-		//     steps {
-        //        withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', passwordVariable: 'LOGIN', usernameVariable: 'USER')]) {
-        //             sh "docker login -u $USER -p $LOGIN"
-        //             sh "docker push 8458882343/devops-springboot:latest"
-        //         }
-		//     }
-		// }
+        stage("Push docker image"){
+		    steps {
+		        script {
+                    withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', passwordVariable: 'LOGIN', usernameVariable: 'USER')]) {
+                        bat "docker login -u ${USER} -p ${LOGIN}"
+                        bat "docker push 8458882343/devops-springboot:${env.BUILD_NUMBER}"
+                    }   
+		        }
+
+		    }
+		}
 	}
 	post { 
         always {
